@@ -11,7 +11,7 @@ class Pedido{
 
     adicionarProduto(produto){
         if (produto instanceof Produto) {
-            this.#produtos.push(Produto);
+            this.#produtos.push(produto);
         }else{
             console.log('Somente objetos do tipo produto podem ser adicionados');
         }
