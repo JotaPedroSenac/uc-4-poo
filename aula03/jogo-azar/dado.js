@@ -3,7 +3,7 @@ class Dado{
 
     constructor(){
 
-        this.#face = Math.floor(Math.random() * 6);
+        this.#face = Math.floor(Math.random() * 6) +1;
     }
 
     get getFace(){

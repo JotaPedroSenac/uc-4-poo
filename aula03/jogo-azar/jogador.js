@@ -7,7 +7,7 @@ class Jogador{
         this.#aposta = aposta;
     }
 
-    getNome(){
+    get getNome(){
         return this.#nome;
     }
 
@@ -15,7 +15,7 @@ class Jogador{
         this.#nome = nome;
     }
 
-    getAposta(){
+    get getAposta(){
         return this.#aposta;
     }
 

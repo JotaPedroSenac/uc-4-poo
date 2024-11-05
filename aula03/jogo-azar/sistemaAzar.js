@@ -17,9 +17,9 @@ class SistemaAzar{
 
     verificarGanhador(){
         if (this.#dado.getFace == this.#jogador.getAposta) {
-            console.log("Deu bom!")
+            console.log("Deu bom! resposta correta")
         }else{
-            console.log('Deu ruim', this.#dado.getFace)
+            console.log("Deu ruim, a face do dado é: ", this.#dado.getFace, "mas a sua aposta foi", this.#jogador.getAposta)
         }
     }
 }
