@@ -11,7 +11,7 @@ class Produto{
 
     getInfoProduto(){
         // retonar nome e preço do produto
-        return 'Produto ' + this.#nome + ' valor' + this.#preco;
+        return 'Produto: ' + this.#nome + ', valor: ' + this.#preco;
     }
 
     get getNome(){

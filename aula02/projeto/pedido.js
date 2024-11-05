@@ -18,9 +18,7 @@ class Pedido{
     }
 
     calcularTotal(){
-        // retornar o total do pedido
-        return this.#produtos[0].Produto.getPreco;
-        
+        return this.#produtos.reduce((total, produto) => total + produto.getPreco, 0);
     }
 
     mostrarPedido(){
@@ -28,6 +26,8 @@ class Pedido{
         this.#produtos.forEach(produto => {
             console.log(produto.getInfoProduto());
         });
+
+        console.log(`Total: ${this.calcularTotal()}`)
     }
 }
 
