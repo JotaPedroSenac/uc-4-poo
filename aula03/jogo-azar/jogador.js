@@ -5,7 +5,9 @@ class Jogador{
     constructor(nome, aposta){
         this.#nome = nome;
         this.#aposta = aposta;
+        Object.freeze(this);
     }
+
 
     get getNome(){
         return this.#nome;
@@ -25,3 +27,10 @@ class Jogador{
 }
 
 module.exports = { Jogador };
+
+// teste
+
+// let jogador01 = new Jogador('Jp', 4);
+// console.log(jogador01.getNome, jogador01.getAposta);
+// console.log(jogador01.getNome);
+// jogador.js
