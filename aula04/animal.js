@@ -13,8 +13,13 @@ class Animal{
         return this.#nome;
     }
 
+    set setNome(nome){
+        this.#nome = nome;
+    }
+
+
     emitirSom(){
-        console.log('som, som, som')
+        console.log(`${this.#nome} está falando: au au`)
     }
 }
 

@@ -1,8 +1,9 @@
 const { Animal } = require('./animal')
 const { Cachorro } = require('./cachorro')
 
-let a1 = new Animal('jorel', 14, 'marrom')
-let c1 = new Cachorro('SDR', 'Joel', 15, 'Preto');
+let c1 = new Animal('jorel', 14, 'marrom')
+let a1 = new Cachorro('Joel', 'SDR', 15, 'Preto');
 
-a1.emitirSom();
-c1.emitirSom();
+// c1.emitirSom();
+// a1.emitirSom();
+console.log(c1.getNome); //herdado de animal
