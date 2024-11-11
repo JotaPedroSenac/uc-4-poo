@@ -1,5 +1,6 @@
 const { alunos } = require('../config/database');
 const { Aluno } = require('../models/Aluno')
+const { Custo } = require("../models/Curso")
 
 class AlunoController{
     adicionarAluno(nome, email, telefone, matricula, curso){

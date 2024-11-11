@@ -1,4 +1,4 @@
-const { Pessoa } = require('../models/Pessoa');
+const { Pessoa } = require('./Pessoa');
 
 class Aluno extends Pessoa {
     #matricula;
