@@ -3,8 +3,8 @@ const { Veiculo } = require('./Veiculo');
 class Moto extends Veiculo{
     #modelo;
     #cor;
-    constructor(ano, marca, modelo, cor){
-        super(ano, marca);
+    constructor(marca, ano, modelo, cor){
+        super(marca, ano);
         this.#cor = cor;
         this.#modelo = modelo;
         Object.freeze(this)
