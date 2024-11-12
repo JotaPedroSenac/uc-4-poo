@@ -5,8 +5,8 @@ const excelDaNasa = new Curso('Excel da Nasa', 'Curso Preparatorio para dev da n
 
 // instancia do AlunoController
 
-const aluno1 = new AlunoController();
-aluno1.listarAluno()
-aluno1.adicionarAluno('Joao', 'joao@email.com', '84999999999', 'a1234', excelDaNasa.nome)
-aluno1.listarAluno();
+const alunoController = new AlunoController();
+alunoController.listarAluno()
+alunoController.adicionarAluno('Joao', 'joao@email.com', '84999999999', 'a1234', excelDaNasa.nome)
+alunoController.listarAluno();
 

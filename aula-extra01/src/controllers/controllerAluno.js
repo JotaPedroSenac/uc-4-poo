@@ -1,6 +1,7 @@
+// const { alunos } = require('../config/database');
 const { alunos } = require('../config/database');
 const { Aluno } = require('../models/Aluno')
-const { Custo } = require("../models/Curso")
+const { Curso } = require('../models/Curso')
 
 class AlunoController{
     adicionarAluno(nome, email, telefone, matricula, curso){
@@ -12,14 +13,13 @@ class AlunoController{
             console.error('Erro ao Criar alunos', error.message)
         }
     }
-    editarAluno(matricula, novoNome, novoEmail, novoTelefone, novoCurso){
+    editarAluno(matricula, novoNome, novoEmail, novoTelefone){
         try {
-            const aluno = alunos.find(aluno => aluno.matricula === matricula)
+            const aluno = alunos.find(aluno => aluno.getMatricula === matricula)
             if(aluno){
                 aluno.nome = novoNome || aluno.nome;
                 aluno.email = novoEmail || aluno.email;
                 aluno.telefone = novoTelefone ||  aluno.telefone;
-                aluno.curso = novoCurso || curso;
     
             }else{
                 console.log("Aluno não encontrado")
@@ -28,9 +28,9 @@ class AlunoController{
             console.error('Erro ao editar alunos', error.message)
         }
     }
-    excluirAluno(){
+    excluirAluno(matricula){
         try {
-            const index = alunos.findIndex(aluno=>aluno.matricula === matricula)
+            const index = alunos.findIndex(aluno=>aluno.getMatricula === matricula)
             if(index !== -1){
                 const alunoRemovido = alunos.splice(index, 1)
                 return alunoRemovido;
@@ -43,7 +43,14 @@ class AlunoController{
     }
     listarAluno(){
         try {
-            console.table(alunos)
+            const dadosAlunos = alunos.map(aluno => ({
+                nome: aluno.nome,
+                email: aluno.email,
+                telefone: aluno.telefone,
+                matricula: aluno.getMatricula,
+                curso: `${aluno.getCurso.nome} - ${aluno.getCurso.descricao}`
+            }))
+            console.table(dadosAlunos)
         } catch (error) {
             console.error("Erro ao listar alunos", error.message)
         }

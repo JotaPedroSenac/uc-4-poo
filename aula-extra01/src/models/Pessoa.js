@@ -9,4 +9,4 @@ class Pessoa {
     }
 }
 
-module.exports = Pessoa;
+module.exports = { Pessoa };
