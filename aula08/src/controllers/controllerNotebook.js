@@ -19,7 +19,7 @@ class ControllerNotebook{
             if(databasenotebook.length > 0){
                 console.log('Notebooks criados:')
                 databasenotebook.forEach(notebook => {
-                    console.log(notebook);
+                    console.log(`Numero de série: ${notebook.getNumeroDeSerie}, Marca: ${notebook.marca}, Modelo: ${notebook.modelo}, Preço: ${notebook.getPreco}`);
                 });
             }else{
                 console.log('Nenhum Notebook cadastrado!')
@@ -35,7 +35,7 @@ class ControllerNotebook{
             if(notebook){
                 notebook.marca = novaMarca;
                 notebook.modelo = novoModelo;
-                notebook.preco = novoPreco;
+                notebook.setPreco = novoPreco;
 
                 console.log(`Notebook ${notebook.marca} alterado com sucesso!`);
             }else{
@@ -71,7 +71,7 @@ class ControllerNotebook{
                 console.log('Não existem notebooks cadastrados!')
             }
         } catch (error) {
-            console.error('Erro ao excluir todos os notebooks!')
+            console.error('Erro ao excluir todos os notebooks!', error.message)
         }
     }
 }
