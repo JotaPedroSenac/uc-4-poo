@@ -31,36 +31,60 @@ class ControllerNotebook{
 
     editarNotebook(numeroDeSerie, novaMarca, novoModelo, novoPreco){
         try {
-            const notebook = databasenotebook.find(notebook  => notebook.numeroDeSerie === numeroDeSerie);
+            const notebook = databasenotebook.find(note=> note.getNumeroDeSerie == numeroDeSerie);
             if(notebook){
-                
+                notebook.marca = novaMarca;
+                notebook.modelo = novoModelo;
+                notebook.preco = novoPreco;
+
+                console.log(`Notebook ${notebook.marca} alterado com sucesso!`);
+            }else{
+                console.log('Notebook não encontrado!')
+                console.log(databasenotebook.numeroDeSerie);
             }
         } catch (error) {
+            console.error('Erro ao editar Notebook', error.message);
             
         }
     }
 
-    excluirNotebook(){
+    excluirNotebook(numeroDeSerie){
         try {
-            
+            const indice = databasenotebook.findIndex(notebook => notebook.getNumeroDeSerie === numeroDeSerie);
+            if (indice !== -1) {
+                databasenotebook.splice(indice, 1);
+                console.log('Notebook excluido com sucesso!')
+            }else{
+                console.log('Erro ao excluir notebook, confira o número de série')
+            }
         } catch (error) {
-            
+            console.error('Erro ao excluir Notebook', error.message)
         }
     }
 
     excluirTodoNotebooks(){
         try {
-            
+            if (databasenotebook.length > 0) {
+                databasenotebook.length = 0;
+                console.log('Notebooks excluidos com sucesso!')
+            }else{
+                console.log('Não existem notebooks cadastrados!')
+            }
         } catch (error) {
-            
+            console.error('Erro ao excluir todos os notebooks!')
         }
     }
 }
 
 // teste
 
-const controllerNote = new ControllerNotebook();
-controllerNote.criarNotebook('123', 'Dell', 'inspiron', '5000');
-controllerNote.listarNotebooks();
+// const controllerNote = new ControllerNotebook();
+// controllerNote.criarNotebook('123', 'Dell', 'inspiron', '5000');
+// controllerNote.listarNotebooks();
+// controllerNote.editarNotebook('123', 'teste', 'teste', '5000');
+// controllerNote.listarNotebooks();
+// controllerNote.excluirNotebook('123')
+// controllerNote.listarNotebooks();
+// controllerNote.excluirTodoNotebooks();
 
 module.exports = { ControllerNotebook };
